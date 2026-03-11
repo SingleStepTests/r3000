@@ -60,6 +60,7 @@ def decode_test(buf, ptr) -> (int, Dict):
     start_ptr = ptr
 
     name = unpack_from('51p', buf, ptr)[0]
+    test['name'] = name.decode('ascii')
     ptr += 51
     test['opcode'], test['opcode_addr'] = unpack_from('II', buf, ptr)
     ptr += 8
