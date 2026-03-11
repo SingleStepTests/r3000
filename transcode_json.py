@@ -11,6 +11,7 @@ def load_state(buf, ptr) -> (int, Any):
     start_ptr = ptr
     state = {'R' : []}
     for i in range (0, 32):
+        if i == 0: print('OFFSET ' + str(ptr))
         state['R'].append(unpack_from('I', buf, ptr)[0])
         ptr += 4
     state['hi'], state['lo'], state['EPC'], state['PC'] = unpack_from('IIII', buf, ptr)
