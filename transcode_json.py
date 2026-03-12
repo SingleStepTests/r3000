@@ -13,10 +13,10 @@ def load_state(buf, ptr) -> (int, Any):
     for i in range (0, 32):
         state['R'].append(unpack_from('=I', buf, ptr)[0])
         ptr += 4
-    state['hi'], state['lo'], state['EPC'], state['PC'] = unpack_from('=IIII', buf, ptr)
+    state['hi'], state['lo'], state['EPC'], state['TAR'], state['CAUSE'], state['PC'] = unpack_from('=IIIIII', buf, ptr)
     if state['R'][0] != 0:
         print('WARN R0 != 0!')
-    ptr += 16
+    ptr += 24
 
     #load target, slot, take
     ltarget, lslot, ltake = unpack_from('=III', buf, ptr)

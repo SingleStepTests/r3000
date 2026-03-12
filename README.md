@@ -57,6 +57,8 @@ Each test has a list with 1000 entries that look like this (this is from ADD.jso
     "hi": 2512090091,
     "lo": 1470262143,
     "EPC": 880480564,
+    "TAR": ...,
+    "CAUSE": ...,
     "PC": 2302685708,
     "delay": {
       "load": {
@@ -108,6 +110,8 @@ Each test has a list with 1000 entries that look like this (this is from ADD.jso
     "hi": 2512090091,
     "lo": 1470262143,
     "EPC": 880480564,
+    "TAR": ...,
+    "CAUSE": ...,
     "PC": 2302685712,
     "delay": {
       "load": {
@@ -136,7 +140,7 @@ At the high level, there are the following entries:
 
 'name', a human-readable name for the test.
 
-'initial' and 'final,' which represent processor state before and after the tests, and include many of the registers. This also includes the branch delay and load delay statuses. These must be implemented to properly emulate the processor, so they are included. delay.load.slot represents whether the next instruction it is in a delay slot. delay.load.take, if the branch is taken. delay.load.target, the target of the branch.
+'initial' and 'final,' which represent processor state before and after the tests, and include many of the registers. This also includes the branch delay and load delay statuses. These must be implemented to properly emulate the processor, so they are included. delay.load.slot represents whether the next instruction it is in a delay slot. delay.load.take, if the branch is taken. delay.load.target, the target of the branch. Finally, EPC, TAR (Target Address Register) and CAUSE are included from the SCC.
 
 For register delay slots, delay.load.target is the register that will be updated, where -1 indicates "no load delay." Val is the value to assign to it.
 
